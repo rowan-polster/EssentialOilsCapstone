@@ -1,4 +1,4 @@
-using Essential_Oil_Capstone.Data;
+using EssentialOilCapstone.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;

@@ -1,10 +1,10 @@
-﻿using Essential_Oil_Capstone.Models;
+﻿using EssentialOilCapstone.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Essential_Oil_Capstone.Data
+namespace EssentialOilCapstone.Data
 {
     public class OilDbContext : DbContext
     {
