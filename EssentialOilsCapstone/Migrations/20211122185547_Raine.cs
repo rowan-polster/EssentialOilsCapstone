@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EssentialOilsCapstone.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Raine : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
