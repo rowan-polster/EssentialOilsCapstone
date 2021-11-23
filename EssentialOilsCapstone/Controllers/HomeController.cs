@@ -15,15 +15,19 @@ namespace EssentialOilsCapstone.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private OilDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, OilDbContext dbContext)
         {
             _logger = logger;
+            context = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Oil> oils = context.EssentialOils
+                .ToList();
+            return View(oils);
         }
 
         public IActionResult Privacy()
