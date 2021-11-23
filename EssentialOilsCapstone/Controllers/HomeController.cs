@@ -1,5 +1,8 @@
-﻿using EssentialOilsCapstone.Models;
+﻿using EssentialOilCapstone.Data;
+using EssentialOilCapstone.Models;
+using EssentialOilsCapstone.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -12,15 +15,19 @@ namespace EssentialOilsCapstone.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private OilDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, OilDbContext dbContext)
         {
             _logger = logger;
+            context = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Oil> oils = context.EssentialOils
+                .ToList();
+            return View(oils);
         }
 
         public IActionResult Privacy()
