@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Oil\" />
   </ItemGroup>
 
 </Project>

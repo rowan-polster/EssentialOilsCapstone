@@ -1,5 +1,8 @@
-﻿using EssentialOilsCapstone.Models;
+﻿using EssentialOilCapstone.Data;
+using EssentialOilCapstone.Models;
+using EssentialOilsCapstone.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
