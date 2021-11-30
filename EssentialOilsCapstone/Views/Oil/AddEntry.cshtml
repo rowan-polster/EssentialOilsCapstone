@@ -1,0 +1,17 @@
+﻿@using EssentialOilsCapstone.ViewModels;
+
+@model AddOilViewModel;
+
+<h1>Add Oil</h1>
+<form method="post">
+    <div asp-controller="Oil" asp-action="Add" class="form-group">
+        <label asp-for="Name">Oil Name: </label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Treatments">Oil Treatments: </label>
+        <checkbox asp-for="Treatments" asp-items="Model.Treatments"></checkbox>
+    </div>
+    <input type="submit" value="Add Essential Oil" />
+</form>
