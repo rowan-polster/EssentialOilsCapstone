@@ -2,7 +2,7 @@
 
 namespace EssentialOilsCapstone.Migrations
 {
-    public partial class MigrationToMeganMachine : Migration
+    public partial class secondmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

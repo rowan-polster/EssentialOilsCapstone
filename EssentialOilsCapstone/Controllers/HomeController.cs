@@ -1,5 +1,4 @@
-﻿using EssentialOilCapstone.Data;
-using EssentialOilCapstone.Models;
+﻿using EssentialOilsCapstone.Data;
 using EssentialOilsCapstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

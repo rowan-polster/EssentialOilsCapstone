@@ -1,5 +1,5 @@
-﻿using EssentialOilCapstone.Data;
-using EssentialOilCapstone.Models;
+﻿using EssentialOilsCapstone.Data;
+using EssentialOilsCapstone.Models;
 using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,7 +28,7 @@ namespace EssentialOilsCapstone.Controllers
         [HttpGet]
         public IActionResult AddEntry()
         {
-            List<Property> treatments = context.Treatment.ToList();
+            List<Property> treatments = context.Property.ToList();
             AddOilViewModel addOilViewModel = new AddOilViewModel(treatments);
             return View(addOilViewModel);
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EssentialOilsCapstone.Migrations
 {
-    public partial class Raine : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,7 @@ namespace EssentialOilsCapstone.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Treatment",
+                name: "Property",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -30,49 +30,49 @@ namespace EssentialOilsCapstone.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Treatment", x => x.Id);
+                    table.PrimaryKey("PK_Property", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "OilTreatment",
+                name: "OilProperty",
                 columns: table => new
                 {
-                    TreatmentId = table.Column<int>(nullable: false),
+                    PropertyId = table.Column<int>(nullable: false),
                     OilId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OilTreatment", x => new { x.OilId, x.TreatmentId });
+                    table.PrimaryKey("PK_OilProperty", x => new { x.OilId, x.PropertyId });
                     table.ForeignKey(
-                        name: "FK_OilTreatment_EssentialOils_OilId",
+                        name: "FK_OilProperty_EssentialOils_OilId",
                         column: x => x.OilId,
                         principalTable: "EssentialOils",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OilTreatment_Treatment_TreatmentId",
-                        column: x => x.TreatmentId,
-                        principalTable: "Treatment",
+                        name: "FK_OilProperty_Property_PropertyId",
+                        column: x => x.PropertyId,
+                        principalTable: "Property",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OilTreatment_TreatmentId",
-                table: "OilTreatment",
-                column: "TreatmentId");
+                name: "IX_OilProperty_PropertyId",
+                table: "OilProperty",
+                column: "PropertyId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OilTreatment");
+                name: "OilProperty");
 
             migrationBuilder.DropTable(
                 name: "EssentialOils");
 
             migrationBuilder.DropTable(
-                name: "Treatment");
+                name: "Property");
         }
     }
 }
