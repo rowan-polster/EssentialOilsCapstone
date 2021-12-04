@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EssentialOilCapstone.Models
+namespace EssentialOilsCapstone.Models
 {
-    public class Treatment
+    public class Property
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public Treatment(string name)
+        public Property(string name)
         {
             Name = name;
         }
 
-        public Treatment()
+        public Property()
         {
 
         }

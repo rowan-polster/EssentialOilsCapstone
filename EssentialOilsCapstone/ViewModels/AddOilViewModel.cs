@@ -1,4 +1,4 @@
-﻿using EssentialOilCapstone.Models;
+﻿using EssentialOilsCapstone.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
@@ -13,21 +13,17 @@ namespace EssentialOilsCapstone.ViewModels
         [Required(ErrorMessage = "Essential oil name is required.")]
         public string Name { get; set; }
 
-        public List<SelectListItem> Treatments { get; set; }
+        [Required(ErrorMessage = "Description is required.")]
+        public string Description { get; set; }
 
-        public AddOilViewModel(List<Treatment> treatments)
+        /*[Required(ErrorMessage = "At least 2 properties are required.")]
+        [MinChecked(2)]*/
+        public List<Property> Properties { get; set; }
+
+        public AddOilViewModel(List<Property> properties)
         {
-            Treatments = new List<SelectListItem>();
+            Properties = properties;
 
-            foreach (Treatment treatment in treatments)
-            {
-                Treatments.Add(
-                    new SelectListItem
-                    {
-                        Value = treatment.Id.ToString(),
-                        Text = treatment.Name
-                    });
-            }
         }
 
         public AddOilViewModel()

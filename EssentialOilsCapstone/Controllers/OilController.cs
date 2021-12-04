@@ -28,7 +28,7 @@ namespace EssentialOilsCapstone.Controllers
         [HttpGet]
         public IActionResult AddEntry()
         {
-            List<Treatment> treatments = context.Treatment.ToList();
+            List<Property> treatments = context.Treatment.ToList();
             AddOilViewModel addOilViewModel = new AddOilViewModel(treatments);
             return View(addOilViewModel);
         }
