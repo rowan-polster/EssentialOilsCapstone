@@ -21,5 +21,21 @@ namespace EssentialOilsCapstone.Models
         {
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Oil @oil &&
+                   Id == @oil.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id);
+        }
+
     }
 }

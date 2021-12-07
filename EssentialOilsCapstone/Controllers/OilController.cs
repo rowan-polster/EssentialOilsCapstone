@@ -17,7 +17,6 @@ namespace EssentialOilsCapstone.Controllers
         {
             context = dbContext;
         }
-        [HttpGet("/oils")]
         public IActionResult Index()
         {
             List<Oil> oils = context.EssentialOils
@@ -25,36 +24,35 @@ namespace EssentialOilsCapstone.Controllers
             return View(oils);
         }
 
-        [HttpGet]
+/*        [HttpGet]*/
         public IActionResult AddEntry()
         {
-            List<Property> treatments = context.Property.ToList();
-            AddOilViewModel addOilViewModel = new AddOilViewModel(treatments);
+            List<Property> properties = context.Property.ToList();
+            AddOilViewModel addOilViewModel = new AddOilViewModel(properties);
             return View(addOilViewModel);
         }
 
-        /*[HttpPost]
-        public IActionResult Add(AddOilViewModel addOilViewModel)
+
+
+        [HttpPost]
+        public IActionResult AddEntry(AddOilViewModel addOilViewModel)
         {
             if (ModelState.IsValid)
             {
-                EventCategory theCategory = context.Categories.Find(addEventViewModel.CategoryId);
-                Event newEvent = new Event
+                Oil newOil = new Oil
                 {
-                    Name = addEventViewModel.Name,
-                    Description = addEventViewModel.Description,
-                    ContactEmail = addEventViewModel.ContactEmail,
-                    Category = theCategory
+                    Name = addOilViewModel.Name,
+                    Description = addOilViewModel.Description,
                 };
 
-                context.Events.Add(newEvent);
+                context.EssentialOils.Add(newOil);
                 context.SaveChanges();
 
-                return Redirect("/Events");
+                return Redirect("Index");
             }
 
-            return View(addEventViewModel);
+            return View(addOilViewModel);
 
-        }*/
+        }
     }
 }
