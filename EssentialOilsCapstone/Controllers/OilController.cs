@@ -1,5 +1,6 @@
-﻿using EssentialOilCapstone.Data;
-using EssentialOilCapstone.Models;
+﻿using EssentialOilsCapstone.Data;
+using EssentialOilsCapstone.Models;
+using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,42 @@ namespace EssentialOilsCapstone.Controllers
         {
             context = dbContext;
         }
-        [HttpGet("/oils")]
         public IActionResult Index()
         {
             List<Oil> oils = context.EssentialOils
                 .ToList();
             return View(oils);
+        }
+
+/*        [HttpGet]*/
+        public IActionResult AddEntry()
+        {
+            List<Property> properties = context.Property.ToList();
+            AddOilViewModel addOilViewModel = new AddOilViewModel(properties);
+            return View(addOilViewModel);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult AddEntry(AddOilViewModel addOilViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Oil newOil = new Oil
+                {
+                    Name = addOilViewModel.Name,
+                    Description = addOilViewModel.Description,
+                };
+
+                context.EssentialOils.Add(newOil);
+                context.SaveChanges();
+
+                return Redirect("Index");
+            }
+
+            return View(addOilViewModel);
+
         }
     }
 }

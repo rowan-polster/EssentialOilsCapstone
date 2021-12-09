@@ -1,0 +1,27 @@
+﻿@using EssentialOilsCapstone.ViewModels;
+@using EssentialOilsCapstone.Models;
+
+@model AddOilViewModel;
+
+<h1>Add Oil</h1>
+<form method="post">
+    <div asp-controller="Oil" asp-action="Add" class="form-group">
+        <label asp-for="Name">Oil Name: </label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div asp-controller="Oil" asp-action="Add" class="form-group">
+        <label asp-for="Description">Description: </label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Properties">Properties: </label>
+        @foreach (Property property in Model.Properties)
+        {
+            <br /><label for="@property.Id">@property.Name</label>
+            <input type="checkbox" name="selectedProperties" value="@property.Id" />}
+        <br /><a asp-controller="Property" asp-action="Add">Add Property</a>
+    </div>
+    <input type="submit" value="Add Essential Oil" />
+</form>

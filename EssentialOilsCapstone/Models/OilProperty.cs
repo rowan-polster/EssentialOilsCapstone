@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EssentialOilCapstone.Models
+namespace EssentialOilsCapstone.Models
 {
-    public class OilTreatment
+    public class OilProperty
     {
-        public int TreatmentId { get; set; }
+        public int PropertyId { get; set; }
         public int OilId { get; set; }
         public Oil Oil { get; set; }
-        public Treatment Treatment { get; set; }
+        public Property Property { get; set; }
 
-        public OilTreatment()
+        public OilProperty()
         {
         }
     }

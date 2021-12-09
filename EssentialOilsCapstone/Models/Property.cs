@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EssentialOilsCapstone.Models
 {
-    public class Oil
+    public class Property
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
 
-        public Oil(string name, string description)
+        public Property(string name)
         {
             Name = name;
-            Description = description;
         }
 
-        public Oil()
+        public Property()
         {
+
         }
 
         public override string ToString()
@@ -28,8 +28,8 @@ namespace EssentialOilsCapstone.Models
 
         public override bool Equals(object obj)
         {
-            return obj is Oil @oil &&
-                   Id == @oil.Id;
+            return obj is Property @property &&
+                   Id == @property.Id;
         }
 
         public override int GetHashCode()
