@@ -12,12 +12,19 @@ else
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Description</th>
+            <th>Properties</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach (var o in Model)
         {
             <tr>
                 <td>@o.Id</td>
                 <td>@o.Name</td>
+                <td>@o.Description</td>
+                @*<td>@o.Properties</td>*@
+                    @*need to get the properties listed here*@
             </tr>
         }
     </table>
