@@ -2,14 +2,16 @@
 using EssentialOilsCapstone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EssentialOilsCapstone.Migrations
 {
     [DbContext(typeof(OilDbContext))]
-    partial class OilDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211210042734_PropertiesFieldOilTable")]
+    partial class PropertiesFieldOilTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

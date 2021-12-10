@@ -2,10 +2,8 @@
 using EssentialOilsCapstone.Models;
 using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EssentialOilsCapstone.Controllers
 {
@@ -35,15 +33,24 @@ namespace EssentialOilsCapstone.Controllers
 
 
         [HttpPost]
-        public IActionResult AddEntry(AddOilViewModel addOilViewModel)
+        public IActionResult AddEntry(AddOilViewModel addOilViewModel, string[] selectedProperties)
         {
             if (ModelState.IsValid)
             {
                 Oil newOil = new Oil
                 {
                     Name = addOilViewModel.Name,
-                    Description = addOilViewModel.Description,
+                    Description = addOilViewModel.Description
                 };
+
+                for (int i = 0; i < selectedProperties.Length; i++)
+                {
+                    OilProperty oilProperty = new OilProperty();
+                    oilProperty.Oil = newOil;
+                    oilProperty.PropertyId = int.Parse(selectedProperties[i]);
+
+                    context.OilProperty.Add(oilProperty);
+                }
 
                 context.EssentialOils.Add(newOil);
                 context.SaveChanges();

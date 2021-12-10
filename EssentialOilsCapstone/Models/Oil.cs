@@ -11,6 +11,7 @@ namespace EssentialOilsCapstone.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public List<OilProperty> Properties { get; set; }
         public Oil(string name, string description)
         {
             Name = name;
