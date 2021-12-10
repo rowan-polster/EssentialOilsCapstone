@@ -40,7 +40,7 @@ namespace EssentialOilsCapstone.Controllers
             {
                 context.Property.Add(property);
                 context.SaveChanges();
-                return RedirectToAction("AddEntry", "Oil");
+                return RedirectToAction("AddEntry", "Admin");
             }
 
             return View("Add", property);

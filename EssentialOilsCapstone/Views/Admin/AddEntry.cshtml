@@ -4,13 +4,16 @@
 @model AddOilViewModel;
 
 <h1>Add Oil</h1>
+<p>
+    <a asp-controller="Admin" asp-action="Delete">Delete Oil</a>
+</p>
 <form method="post">
-    <div asp-controller="Oil" asp-action="Add" class="form-group">
+    <div asp-controller="Admin" asp-action="Add" class="form-group">
         <label asp-for="Name">Oil Name: </label>
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-    <div asp-controller="Oil" asp-action="Add" class="form-group">
+    <div asp-controller="Admin" asp-action="Add" class="form-group">
         <label asp-for="Description">Description: </label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
@@ -25,3 +28,4 @@
     </div>
     <input type="submit" value="Add Essential Oil" />
 </form>
+

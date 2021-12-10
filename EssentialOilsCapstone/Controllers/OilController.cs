@@ -54,5 +54,26 @@ namespace EssentialOilsCapstone.Controllers
             return View(addOilViewModel);
 
         }
+
+        public IActionResult Delete()
+        {
+            ViewBag.oils = context.EssentialOils.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] oilIds)
+        {
+            foreach (int oilId in oilIds)
+            {
+                Oil theOil = context.EssentialOils.Find(oilId);
+                context.EssentialOils.Remove(theOil);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/Oil");
+        }
     }
 }
