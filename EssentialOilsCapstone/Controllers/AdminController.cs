@@ -34,7 +34,7 @@ namespace EssentialOilsCapstone.Controllers
 
 
         [HttpPost]
-        public IActionResult AddEntry(AddOilViewModel addOilViewModel)
+        public IActionResult AddEntry(AddOilViewModel addOilViewModel, string[] selectedProperties)
         {
             if (ModelState.IsValid)
             {
@@ -43,6 +43,15 @@ namespace EssentialOilsCapstone.Controllers
                     Name = addOilViewModel.Name,
                     Description = addOilViewModel.Description,
                 };
+
+                for (int i = 0; i < selectedProperties.Length; i++)
+                {
+                    OilProperty oilProperty = new OilProperty();
+                    oilProperty.Oil = newOil;
+                    oilProperty.PropertyId = int.Parse(selectedProperties[i]);
+
+                    context.OilProperty.Add(oilProperty);
+                }
 
                 context.EssentialOils.Add(newOil);
                 context.SaveChanges();

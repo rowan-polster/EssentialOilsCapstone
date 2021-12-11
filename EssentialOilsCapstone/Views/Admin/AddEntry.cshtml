@@ -7,13 +7,13 @@
 <p>
     <a asp-controller="Admin" asp-action="Delete">Delete Oil</a>
 </p>
-<form method="post">
-    <div asp-controller="Admin" asp-action="Add" class="form-group">
+<form method="post" asp-controller="Admin" asp-action="AddEntry">
+    <div class="form-group">
         <label asp-for="Name">Oil Name: </label>
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-    <div asp-controller="Admin" asp-action="Add" class="form-group">
+    <div class="form-group">
         <label asp-for="Description">Description: </label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
@@ -23,7 +23,8 @@
         @foreach (Property property in Model.Properties)
         {
             <br /><label for="@property.Id">@property.Name</label>
-            <input type="checkbox" name="selectedProperties" value="@property.Id" />}
+            <input type="checkbox" name="selectedProperties" value="@property.Id" />
+         }
         <br /><a asp-controller="Property" asp-action="Add">Add Property</a>
     </div>
     <input type="submit" value="Add Essential Oil" />

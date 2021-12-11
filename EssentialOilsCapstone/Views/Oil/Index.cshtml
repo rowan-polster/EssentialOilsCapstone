@@ -10,21 +10,16 @@ else
 {
     <table class="table">
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Properties</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
-        @foreach (var o in Model)
+        @foreach (var o in ViewBag.essentialOils)
         {
             <tr>
-                <td>@o.Id</td>
                 <td>@o.Name</td>
-                <td>@o.Description</td>
-                @*<td>@o.Properties</td>*@
-                    @*need to get the properties listed here*@
+                <td>@o.Description</td> 
+                <td>@o.PropertyText</td>
                 
             </tr>
         }

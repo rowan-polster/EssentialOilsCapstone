@@ -2,10 +2,9 @@
 using EssentialOilsCapstone.Models;
 using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EssentialOilsCapstone.Controllers
 {
@@ -17,63 +16,28 @@ namespace EssentialOilsCapstone.Controllers
         {
             context = dbContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
+
+            List<OilDetailViewModel> displayOils = new List<OilDetailViewModel>();
+
             List<Oil> oils = context.EssentialOils
                 .ToList();
+
+            foreach (Oil oil in oils)
+            {
+                List<OilProperty> oilProperties = context.OilProperty
+                    .Where(op => op.OilId == oil.Id)
+                    .Include(op => op.Property)
+                    .ToList();
+
+                OilDetailViewModel newDisplayOil = new OilDetailViewModel(oil, oilProperties);
+                displayOils.Add(newDisplayOil);
+            }
+
+            ViewBag.essentialOils = displayOils;
+
             return View(oils);
-        }
-
-/*        [HttpGet]*/
-        public IActionResult AddEntry()
-        {
-            List<Property> properties = context.Property.ToList();
-            AddOilViewModel addOilViewModel = new AddOilViewModel(properties);
-            return View(addOilViewModel);
-        }
-
-
-
-        [HttpPost]
-        public IActionResult AddEntry(AddOilViewModel addOilViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                Oil newOil = new Oil
-                {
-                    Name = addOilViewModel.Name,
-                    Description = addOilViewModel.Description,
-                };
-
-                context.EssentialOils.Add(newOil);
-                context.SaveChanges();
-
-                return Redirect("Index");
-            }
-
-            return View(addOilViewModel);
-
-        }
-
-        public IActionResult Delete()
-        {
-            ViewBag.oils = context.EssentialOils.ToList();
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Delete(int[] oilIds)
-        {
-            foreach (int oilId in oilIds)
-            {
-                Oil theOil = context.EssentialOils.Find(oilId);
-                context.EssentialOils.Remove(theOil);
-            }
-
-            context.SaveChanges();
-
-            return Redirect("/Oil");
         }
     }
 }
