@@ -83,5 +83,23 @@ namespace EssentialOilsCapstone.Controllers
 
             return Redirect("/Oil");
         }
+
+        [HttpGet("/Admin/Edit/{oilId?}")]
+        public IActionResult Edit(int oilId)
+        {
+            ViewBag.oil = context.EssentialOils.Find(oilId);
+            ViewBag.title = "Edit Oil " + ViewBag.oil.Name + " (id = " + ViewBag.oil.Id + ")";
+            return View();
+        }
+
+        [HttpPost("/Admin/Edit")]
+        public IActionResult SubmitEditOilForm(int oilId, string name, string description)
+        {
+            ViewBag.oil = context.EssentialOils.Find(oilId);
+            ViewBag.oil.Name = name;
+            ViewBag.oil.Description = description;
+
+            return Redirect("/Oil/Index");
+        }
     }
 }
