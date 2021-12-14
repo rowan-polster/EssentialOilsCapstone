@@ -1,0 +1,30 @@
+﻿<h1>Edit Oil</h1>
+<h5>@ViewBag.title</h5>
+<form method="post" action="/Admin/Edit">
+    <input type="hidden" value="@ViewBag.oilId" name="oilId" />
+    <label for="name">Oil Name: </label>
+    <input name="name" type="text" value="@ViewBag.oil.Name" /><br />
+    <label for="description">Description: </label>
+    <input name="description" type="text" value="@ViewBag.oil.Description" /><br />
+    <div class="form-group">
+        <label>Properties: </label>
+
+        @foreach (Property property in ViewBag.allProperties)
+        {
+            if (ViewBag.theProperties.Contains(property))
+            {
+                <br /><label for="@property.Id">@property.Name</label>
+                <input type="checkbox" name="newProperties" value="@property.Id" checked />
+            }
+            else
+            {
+                <br /><label for="@property.Id">@property.Name</label>
+                <input type="checkbox" name="newProperties" value="@property.Id" />
+            }
+
+        }
+        <br /><a asp-controller="Property" asp-action="Add">Add Property</a>
+    </div>
+
+    <input type="submit" value="Edit Essential Oil" />
+</form>

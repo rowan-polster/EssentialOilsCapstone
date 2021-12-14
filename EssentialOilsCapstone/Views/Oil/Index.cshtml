@@ -13,6 +13,8 @@ else
             <th>Name</th>
             <th>Description</th>
             <th>Properties</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach (var o in ViewBag.essentialOils)
         {
@@ -20,6 +22,8 @@ else
                 <td>@o.Name</td>
                 <td>@o.Description</td> 
                 <td>@o.PropertyText</td>
+                <td><a asp-controller = "Admin" asp-action="Edit" asp-route-oilId="@o.OilId">Edit</a></td>
+                <td><form action="/Admin/Delete" method="post"><input type="hidden" name="oilIds" value="@o.OilId" /><input type="submit" class="btn-danger" value="X"></form></td>
                 
             </tr>
         }
