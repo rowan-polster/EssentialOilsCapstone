@@ -2,6 +2,7 @@
 using EssentialOilsCapstone.Models;
 using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -87,18 +88,74 @@ namespace EssentialOilsCapstone.Controllers
         [HttpGet("/Admin/Edit/{oilId?}")]
         public IActionResult Edit(int oilId)
         {
+            List<OilProperty> oilProperties = context.OilProperty
+                     .Where(op => op.OilId == context.EssentialOils.Find(oilId).Id)
+                     .Include(op => op.Property)
+                     .ToList();
+
+            List<Property> theProperties = new List<Property>();
+
+            foreach(OilProperty op in oilProperties)
+            {
+                theProperties.Add(op.Property);
+            }
+
+            List<Property> properties = context.Property.ToList();
+
             ViewBag.oil = context.EssentialOils.Find(oilId);
             ViewBag.oilId = oilId;
             ViewBag.title = "Edit Oil " + ViewBag.oil.Name + " (id = " + ViewBag.oil.Id + ")";
+            ViewBag.allProperties = properties;
+            ViewBag.theProperties = theProperties;
+
             return View();
         }
 
         [HttpPost("/Admin/Edit")]
-        public IActionResult SubmitEditOilForm(int oilId, string name, string description)
+        public IActionResult SubmitEditOilForm(int oilId, string name, string description, string[] newProperties)
         {
             context.EssentialOils.Find(oilId).Name = name;
             context.EssentialOils.Find(oilId).Description = description;
 
+            List<OilProperty> oilProperties = context.OilProperty
+                     .Where(op => op.OilId == context.EssentialOils.Find(oilId).Id)
+                     .Include(op => op.Property)
+                     .ToList();
+
+            List<string> oldPropertyNames = new List<string>();
+            List<Property> oldProperties = new List<Property>();
+
+            foreach (OilProperty op in oilProperties)
+            {
+                oldPropertyNames.Add(op.Property.Name);
+            }
+
+            foreach(OilProperty op in oilProperties)
+            {
+                oldProperties.Add(op.Property);
+            }
+
+
+            for (int i = 0; i < oldProperties.Count; i++)
+            {
+                if (!newProperties.Contains(oldProperties[i].Name))
+                {
+                    context.Remove(context.OilProperty.Find(oilId, oldProperties[i].Id));
+                }
+            }
+
+            for (int i = 0; i < newProperties.Length; i++)
+            {
+                if (!oldPropertyNames.Contains(newProperties[i]))
+                {
+                    OilProperty oilProperty = new OilProperty();
+                    oilProperty.OilId = oilId;
+                    oilProperty.PropertyId = int.Parse(newProperties[i]);
+
+                    context.OilProperty.Add(oilProperty);
+                }
+                                
+            }
             context.SaveChanges();
 
             return Redirect("/Oil/Index");
