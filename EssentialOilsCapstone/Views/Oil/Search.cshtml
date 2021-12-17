@@ -1,0 +1,45 @@
+﻿<div class="container body-content">
+
+    <h1>@ViewBag.title</h1>
+
+    <form action="/oil/search" method="post">
+        <h2>Search by:</h2>
+
+        <p>
+            @foreach (var column in ViewBag.columns)
+            {
+                <span>
+                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
+                    <label for="@column.Key">@column.Value</label>
+                </span>
+            }
+
+        </p>
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <hr />
+
+    @if (ViewBag.oils != null)
+    {
+        <table class="table">
+            @foreach (var oil in ViewBag.oils)
+            {
+                <tr>
+                    <td>
+                        <p>Name: @oil.Name</p>
+                        <p>Description: @oil.Description</p>
+                        <p>Properties: @oil.PropertyText</p>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+
+</div>
