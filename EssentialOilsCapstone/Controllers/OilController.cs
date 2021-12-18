@@ -49,7 +49,7 @@ namespace EssentialOilsCapstone.Controllers
 
             ViewBag.essentialOils = displayOils;
 
-            return View("Search", oils);
+            return View(oils);
         }
 
         public IActionResult Search(string searchType, string searchTerm)
