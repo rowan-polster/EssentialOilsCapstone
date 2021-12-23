@@ -12,10 +12,12 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="bootstrap" Version="5.1.2" />
+    <PackageReference Include="bootstrap.sass" Version="5.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore.Identity" />
     <None Remove="bootstrap" />
+    <None Remove="bootstrap.sass" />
   </ItemGroup>
 </Project>
