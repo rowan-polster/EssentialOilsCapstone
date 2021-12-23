@@ -2,7 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Essential Wellness!</h1>
-    <p>~~~~Tagline~~~~</p>
+<div class="px-4 py-5 bg-info text-center">
+    <h1 class="display-4 fw-bold">Welcome To <br /> Essential Wellness</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">~~~~Tagline~~~~</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a type="button" class="btn btn-primary btn-lg px-4" asp-area="" asp-controller="Oil" asp-action="Search">Search Oils</a>
+        </div>
+    </div>
 </div>
