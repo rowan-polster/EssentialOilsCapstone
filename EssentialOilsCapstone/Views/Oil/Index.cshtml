@@ -25,6 +25,7 @@ else
                 <td><a asp-controller = "Admin" asp-action="Edit" asp-route-oilId="@o.OilId">Edit</a></td>
                 <td><form action="/Admin/Delete" method="post"><input type="hidden" name="oilIds" value="@o.OilId" /><input type="submit" class="btn-danger" value="X"></form></td>
                 
+
             </tr>
         }
     </table>

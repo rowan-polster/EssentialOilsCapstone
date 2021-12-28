@@ -55,7 +55,7 @@ namespace EssentialOilsCapstone.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteProperties(int[] propertyIds)
+        public IActionResult DeleteProperty(int[] propertyIds)
         {
             foreach (int propertyId in propertyIds)
             {
