@@ -1,4 +1,5 @@
 ﻿using System;
+using EssentialOilsCapstone.Areas.Identity.Data;
 using EssentialOilsCapstone.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -19,7 +20,7 @@ namespace EssentialOilsCapstone.Areas.Identity
                  options.UseMySql(
                      context.Configuration.GetConnectionString("DefaultConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<EssentialOilsCapstoneUser>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddEntityFrameworkStores<OilDbContext>();
             });
         }

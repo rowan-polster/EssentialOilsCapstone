@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using EssentialOilsCapstone.Areas.Identity.Data
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<EssentialOilsCapstoneUser> SignInManager
+@inject UserManager<EssentialOilsCapstoneUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
