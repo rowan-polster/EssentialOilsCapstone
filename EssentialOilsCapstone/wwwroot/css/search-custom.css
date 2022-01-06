@@ -11,7 +11,12 @@
         opacity: 1;
     }
 }
-.table {
+
+#search-results {
+    animation: fadeIn linear 1s;
+}
+
+.search-text {
     animation: fadeIn linear 1s;
     color: black;
     font-size: 15px;
@@ -19,6 +24,11 @@
     display: flex;
     position: sticky;
     width: 75%;
+}
+
+.oilName {
+    font-size: 35px;
+    font-family: 'Varela Round', sans-serif;
 }
 
 

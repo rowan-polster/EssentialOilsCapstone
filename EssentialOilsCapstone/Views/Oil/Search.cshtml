@@ -15,50 +15,56 @@
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     </head>
 <body>
-<div class="container body-content">
 
-    <h1>@ViewBag.title</h1>
+    <div class="container body-content">
 
-    <form action="/oil/search" method="post">
-        <h2>Search by:</h2>
+        <h1>@ViewBag.title</h1>
 
-        <p>
-            @foreach (var column in ViewBag.columns)
-            {
-                <span>
-                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
-                    <label for="@column.Key">@column.Value</label>
-                </span>
-            }
+        <form action="/oil/search" method="post">
+            <h2>Search by:</h2>
 
-        </p>
+            <p>
+                @foreach (var column in ViewBag.columns)
+                {
+                     <span>
+                        <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
+                        <label for="@column.Key">@column.Value</label>
+                     </span>
 
-        <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
-        </p>
+                }
 
-        <input type="submit" value="Search" />
-    </form>
+            </p>
 
-    <hr />
+            <p>
+                <label for="searchTerm">Keyword:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
 
-    @if (ViewBag.oils != null)
-    {
-        <table class="table">
+            <input type="submit" value="Search" />
+        </form>
+
+        <hr />
+
+        @if (ViewBag.oils != null)
+        {
+
             @foreach (var oil in ViewBag.oils)
             {
-                <tr>
-                    <td>
-                        <p>Name: @oil.Name</p>
-                        <p>Description: @oil.Description</p>
-                        <p>Properties: @oil.PropertyText</p>
-                    </td>
-                </tr>
-            }
-        </table>
-    }
+    <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+        </svg>
+        <div class="card-body">
+            <h4 class="card-title">Name: @oil.Name</h4>
+            <p class="card-text">Description: @oil.Description</p>
+            <p class="card-text">Properties: @oil.PropertyText</p>
 
-</div>
+        </div>
+    </div>
+            }
+
+        }
+    </div>
 </body>
 </html>
