@@ -46,5 +46,27 @@ namespace EssentialOilsCapstone.Controllers
             return View("Add", property);
 
         }
+
+        public IActionResult DeleteProperty()
+        {
+            ViewBag.properties = context.Property.ToList();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DeleteProperty(int[] propertyIds)
+        {
+            foreach (int propertyId in propertyIds)
+            {
+                Property theProperty = context.Property.Find(propertyId);
+                context.Property.Remove(theProperty);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/Property");
+        }
+
     }
 }
