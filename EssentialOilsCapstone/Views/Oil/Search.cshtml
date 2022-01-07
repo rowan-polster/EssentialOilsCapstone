@@ -59,6 +59,14 @@
             <h4 class="card-title">Name: @oil.Name</h4>
             <p class="card-text">Description: @oil.Description</p>
             <p class="card-text">Properties: @oil.PropertyText</p>
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <form action="/user/addtocabinet" method="post">
+                <input type="hidden" value="@oil.OilId" />
+                <input type="hidden" value="@Context.User.Identity.Name" />
+                <input type="submit" class="card-text" value="Add to My Medicine Cabinet"/>
+            </form>
+            }
 
         </div>
     </div>

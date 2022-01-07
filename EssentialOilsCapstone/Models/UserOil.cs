@@ -8,7 +8,7 @@ namespace EssentialOilsCapstone.Models
 {
     public class UserOil
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public int OilId { get; set; }
         public Oil Oil { get; set; }
         public EssentialOilsCapstoneUser User { get; set; }

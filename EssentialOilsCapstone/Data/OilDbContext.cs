@@ -1,4 +1,6 @@
-﻿using EssentialOilsCapstone.Models;
+﻿using EssentialOilsCapstone.Areas.Identity.Data;
+using EssentialOilsCapstone.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Text;
 
 namespace EssentialOilsCapstone.Data
 {
-    public class OilDbContext : DbContext
+    public class OilDbContext : IdentityDbContext<EssentialOilsCapstoneUser>
     {
         public DbSet<Oil> EssentialOils { get; set; }
         public DbSet<Property> Property { get; set; }

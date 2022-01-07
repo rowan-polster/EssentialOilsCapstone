@@ -3,14 +3,16 @@ using System;
 using EssentialOilsCapstone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EssentialOilsCapstone.Migrations
 {
     [DbContext(typeof(OilDbContext))]
-    partial class OilDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220107002614_RedoIdentityMigration")]
+    partial class RedoIdentityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,12 +134,15 @@ namespace EssentialOilsCapstone.Migrations
                     b.Property<int>("OilId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.HasKey("OilId", "UserId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("UserOil");
                 });
@@ -299,9 +304,7 @@ namespace EssentialOilsCapstone.Migrations
 
                     b.HasOne("EssentialOilsCapstone.Areas.Identity.Data.EssentialOilsCapstoneUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
