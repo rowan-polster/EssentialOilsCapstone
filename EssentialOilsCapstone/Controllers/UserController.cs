@@ -67,5 +67,18 @@ namespace EssentialOilsCapstone.Controllers
 
             return Redirect("/Oil/Search");
         }
+
+        [HttpPost]
+        public IActionResult Delete(int oilId)
+        {
+            string currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            UserOil theUserOil = context.UserOil.Find(oilId, currentUserId);
+            context.UserOil.Remove(theUserOil);
+
+            context.SaveChanges();
+
+            return Redirect("/User/Index");
+        }
     }
 }
