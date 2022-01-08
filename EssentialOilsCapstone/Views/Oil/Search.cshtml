@@ -15,38 +15,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     </head>
 <body>
+    <div class="px-5 py-5">
+        <div class="container body-content">
 
-    <div class="container body-content">
+            <h1>@ViewBag.title</h1>
 
-        <h1>@ViewBag.title</h1>
+            <form action="/oil/search" method="post">
+                <h2>Search by:</h2>
 
-        <form action="/oil/search" method="post">
-            <h2>Search by:</h2>
+                <p>
+                    @foreach (var column in ViewBag.columns)
+                    {
+                        <span>
+                            <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
+                            <label for="@column.Key">@column.Value</label>
+                        </span>
 
-            <p>
-                @foreach (var column in ViewBag.columns)
-                {
-                     <span>
-                        <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
-                        <label for="@column.Key">@column.Value</label>
-                     </span>
+                    }
 
-                }
+                </p>
 
-            </p>
+                <p>
+                    <label for="searchTerm">Keyword:</label>
+                    <input type="text" name="searchTerm" id="searchTerm" />
+                </p>
 
-            <p>
-                <label for="searchTerm">Keyword:</label>
-                <input type="text" name="searchTerm" id="searchTerm" />
-            </p>
+                <input type="submit" value="Search" />
+            </form>
 
-            <input type="submit" value="Search" />
-        </form>
+            <hr />
 
-        <hr />
-
-        @if (ViewBag.oils != null)
-        {
+            @if (ViewBag.oils != null)
+            {
 
             @foreach (var oil in ViewBag.oils)
             {
@@ -67,11 +67,12 @@
             </form>
             }
 
-        </div>
-    </div>
-            }
+                        </div>
+                    </div>
+                }
 
-        }
+            }
+        </div>
     </div>
 </body>
 </html>
