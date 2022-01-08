@@ -22,14 +22,13 @@ namespace EssentialOilsCapstone.Controllers
             context = dbContext;
         }
 
-        [HttpPost]
         public IActionResult Index()
         {
-            return View("Cabinet");
+            return View();
         }
 
 
-        [HttpPost("/User/AddToCabinet")]
+        [HttpPost("/User/Index")]
         public IActionResult AddToCabinet(string userName, Oil oil)
         {
             if (ModelState.IsValid)

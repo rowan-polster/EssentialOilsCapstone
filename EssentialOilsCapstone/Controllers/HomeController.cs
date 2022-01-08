@@ -24,9 +24,7 @@ namespace EssentialOilsCapstone.Controllers
 
         public IActionResult Index()
         {
-            List<Oil> oils = context.EssentialOils
-                .ToList();
-            return View(oils);
+            return View();
         }
 
         public IActionResult Privacy()
