@@ -1,10 +1,12 @@
 ﻿using EssentialOilsCapstone.Areas.Identity.Data;
 using EssentialOilsCapstone.Data;
 using EssentialOilsCapstone.Models;
+using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +26,39 @@ namespace EssentialOilsCapstone.Controllers
 
         public IActionResult Index()
         {
+            string currentUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            List<OilDetailViewModel> displayOils = new List<OilDetailViewModel>();
+
+            List<UserOil> userOilEntries = context.UserOil
+                        .Where(uo => uo.UserId == currentUserId)
+                        .Include(uo => uo.Oil)
+                        .ToList();
+
+            foreach (var oil in userOilEntries)
+            {
+                Oil foundOil = context.EssentialOils
+                    .Single(o => o.Id == oil.OilId);
+
+                List<OilProperty> displayProperties = context.OilProperty
+                    .Where(op => op.OilId == foundOil.Id)
+                    .Include(op => op.Property)
+                    .ToList();
+
+                OilDetailViewModel newDisplayOil = new OilDetailViewModel(foundOil, displayProperties);
+                displayOils.Add(newDisplayOil);
+            }
+            ViewBag.userOils = displayOils;
             return View();
         }
 
 
         [HttpPost("/User/Index")]
-        public IActionResult AddToCabinet(string userName, Oil oil)
+        public IActionResult AddToCabinet(int oilId)
         {
             if (ModelState.IsValid)
             {
                 UserOil userOil = new UserOil();
-                userOil.Oil = oil;
+                userOil.OilId = oilId;
                 userOil.UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 context.UserOil.Add(userOil);
