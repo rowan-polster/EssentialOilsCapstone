@@ -61,10 +61,10 @@
             <p class="card-text">Properties: @oil.PropertyText</p>
             @if (Context.User.Identity.IsAuthenticated)
             {
-            <form action="/User/AddToCabinet" method="post">
-                <input type="hidden" value="@oil.OilId" />
-                <input type="submit" class="card-text" value="Add to My Medicine Cabinet"/>
-            </form>
+                <form action="/User/AddToCabinet" method="post">
+                    <input type="hidden" value="@oil.OilId" />
+                    <input type="submit" class="card-text" value="Add to My Medicine Cabinet"/>
+                </form>
             }
 
                         </div>
