@@ -1,0 +1,37 @@
+﻿body {
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #f3969a 100%);
+}
+
+
+@media (min-width: 576px) {
+    .container, container-sm {
+        max-width: 5400px;
+    }
+}
+
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mb-3 {
+    margin-bottom: 0rem !important;
+}
+
+.navbar {
+    padding: 0.5rem 2rem;
+}
+
+.footer {
+    padding: 0rem 2rem;
+    line-height: 45px;
+    font-size: 14px;
+}
+
+.px-6 {
+    padding-left: 425px;
+    padding-right: 425px;
+}
