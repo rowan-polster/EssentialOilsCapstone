@@ -1,0 +1,13 @@
+﻿<h1>Role Management</h1><br />
+
+@if(ViewBag.roles != null)
+            {
+                foreach(var role in ViewBag.roles)
+                {
+                    <p>@role.Name</p>
+                }
+            }
+            else
+            {
+                <p>No roles have been defined.</p>
+            }

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace EssentialOilsCapstone.ViewModels
 {
-    public class AddPropertyViewModel
+    public class AddRoleViewModel
     {
-/*      [Required(ErrorMessage = "Property name is required.")]
-        [StringLength(20, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 20 characters long.")]*/
+        [Required(ErrorMessage = "Property name is required.")]
+        [StringLength(20, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 20 characters long.")]
         public string Name { get; set; }
 
-        public AddPropertyViewModel(string name)
+        public AddRoleViewModel(string name)
         {
             Name = name;
         }
 
-        public AddPropertyViewModel()
+        public AddRoleViewModel()
         {
         }
     }

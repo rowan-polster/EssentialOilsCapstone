@@ -1,0 +1,14 @@
+﻿@model EssentialOilsCapstone.ViewModels.AddRoleViewModel
+
+<div class="px-5 py-5">
+    <h1>Add New Role</h1>
+
+    <form asp-controller="Role" asp-action="AddRole" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Property Name</label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
