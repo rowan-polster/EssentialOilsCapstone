@@ -5,14 +5,16 @@
 }
 @model EssentialOilsCapstone.ViewModels.AddPropertyViewModel
 
-<h1>Add New Property</h1>
+<div class="px-5 py-5">
+    <h1>Add New Property</h1>
 
-<form asp-controller="Property" asp-action="Add" method="post">
-    <div class="form-group">
-        <label asp-for="Name">Property Name</label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-    </div>
-    <input type="submit" value="Submit" />
-</form>
+    <form asp-controller="Property" asp-action="Add" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Property Name</label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
 

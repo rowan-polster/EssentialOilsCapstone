@@ -3,14 +3,16 @@ using System;
 using EssentialOilsCapstone.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EssentialOilsCapstone.Migrations
 {
     [DbContext(typeof(OilDbContext))]
-    partial class OilDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220107001612_IdentityMigrationRaine")]
+    partial class IdentityMigrationRaine
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,21 +127,6 @@ namespace EssentialOilsCapstone.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Property");
-                });
-
-            modelBuilder.Entity("EssentialOilsCapstone.Models.UserOil", b =>
-                {
-                    b.Property<int>("OilId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
-
-                    b.HasKey("OilId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserOil");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -285,21 +272,6 @@ namespace EssentialOilsCapstone.Migrations
                     b.HasOne("EssentialOilsCapstone.Models.Property", "Property")
                         .WithMany()
                         .HasForeignKey("PropertyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EssentialOilsCapstone.Models.UserOil", b =>
-                {
-                    b.HasOne("EssentialOilsCapstone.Models.Oil", "Oil")
-                        .WithMany()
-                        .HasForeignKey("OilId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EssentialOilsCapstone.Areas.Identity.Data.EssentialOilsCapstoneUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

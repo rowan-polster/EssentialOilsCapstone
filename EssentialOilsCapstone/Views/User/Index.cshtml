@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EssentialOilsCapstone</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/search-custom.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container body-content">
+
+        <h1>My Medicine Cabinet</h1> 
+
+        @if (ViewBag.userOils != null)
+        {
+
+            @foreach (var oil in ViewBag.userOils)
+            {
+                <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
+                    <div class="card-body">
+                        <h4 class="card-title">Name: @oil.Name</h4>
+                        <p class="card-text">Description: @oil.Description</p>
+                        <p class="card-text">Properties: @oil.PropertyText</p>
+                        <form action="/User/Delete" method="post">
+                            <input type="hidden" name="oilId" value="@oil.OilId" />
+                            <input type="submit" class="card-text" value="Delete"/>
+                        </form>
+                    </div>
+                </div>
+            }
+
+        }
+    </div>
+</body>
+</html>

@@ -11,14 +11,14 @@ else
 {
     <table class="table">
         <tr>
-            <th>ID</th>
+            @*<th>ID</th>*@
             <th>Name</th>
             <th>Delete</th>
         </tr>
         @foreach (var p in Model) 
         {
     <tr>
-        <td>@p.Id</td>
+        @*<td>@p.Id</td>*@
         <td>@p.Name</td>
         <td><form action="/Property/DeleteProperty" method="post"><input type="hidden" name="propertyIds" value="@p.Id" /><input type="submit" class="btn-danger" value="X"></form></td>
     </tr>
