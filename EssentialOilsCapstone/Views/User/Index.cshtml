@@ -22,22 +22,24 @@
 
         @if (ViewBag.userOils != null)
         {
+            <div class="card-columns">
 
-            @foreach (var oil in ViewBag.userOils)
-            {
-                <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">Name: @oil.Name</h4>
-                        <p class="card-text">Description: @oil.Description</p>
-                        <p class="card-text">Properties: @oil.PropertyText</p>
-                        <form action="/User/Delete" method="post">
-                            <input type="hidden" name="oilId" value="@oil.OilId" />
-                            <input type="submit" class="card-text" value="Delete"/>
-                        </form>
+                @foreach (var oil in ViewBag.userOils)
+                {
+                    <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">Name: @oil.Name</h4>
+                            <p class="card-text">Description: @oil.Description</p>
+                            <p class="card-text">Properties: @oil.PropertyText</p>
+
+                            <form action="/User/Delete" method="post">
+                                <input type="hidden" name="oilId" value="@oil.OilId" />
+                                <input type="submit" class="btn btn-outline-danger" value="Delete" />
+                            </form>
+                        </div>
                     </div>
-                </div>
-            }
-
+                }
+            </div>
         }
     </div>
 </body>

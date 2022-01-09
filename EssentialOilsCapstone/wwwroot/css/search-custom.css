@@ -1,7 +1,4 @@
-﻿body {
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-}
-
+﻿
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -31,4 +28,34 @@
     font-family: 'Varela Round', sans-serif;
 }
 
+.search-page-top {
+    margin-left: 400px;
+}
 
+div.stars {
+    width: 270px;
+    margin-right: 300px;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    padding: 10px;
+    font-size: 24px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+    color: #5fb894;
+}
