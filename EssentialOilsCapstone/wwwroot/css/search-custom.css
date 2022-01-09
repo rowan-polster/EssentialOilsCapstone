@@ -31,3 +31,8 @@
 .card-columns {
     column-count: 3;
 }
+
+.page-top {
+    width: 300px;
+    margin: 4px;
+}

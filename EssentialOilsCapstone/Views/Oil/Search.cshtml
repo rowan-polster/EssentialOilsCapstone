@@ -16,32 +16,34 @@
     </head>
 <body>
 
-    <div class="container body-content">
+    <div class="search-page">
+        <div class="page-top">
 
-        <h1>@ViewBag.title</h1>
+            <h1>@ViewBag.title</h1>
 
-        <form action="/oil/search" method="post">
-            <h2>Search by:</h2>
+            <form action="/oil/search" method="post">
+                <h2>Search by:</h2>
 
-            <p>
-                @foreach (var column in ViewBag.columns)
-                {
-                    <span>
-                        <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
-                        <label for="@column.Key">@column.Value</label>
-                    </span>
+                <p>
+                    @foreach (var column in ViewBag.columns)
+                    {
+                        <span>
+                            <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
+                            <label for="@column.Key">@column.Value</label>
+                        </span>
 
-                }
+                    }
 
-            </p>
+                </p>
 
-            <p>
-                <label for="searchTerm">Keyword:</label>
-                <input type="text" name="searchTerm" id="searchTerm" />
-            </p>
+                <p>
+                    <label for="searchTerm">Keyword:</label>
+                    <input type="text" name="searchTerm" id="searchTerm" />
+                </p>
 
-            <input type="submit" class="btn btn-primary" value="Search" />
-        </form>
+                <input type="submit" class="btn btn-primary" value="Search" />
+            </form>
+        </div>
 
         <hr />
 
@@ -56,6 +58,13 @@
                         <h4 class="card-title">Name: @oil.Name</h4>
                         <p class="card-text">Description: @oil.Description</p>
                         <p class="card-text">Properties: @oil.PropertyText</p>
+                        @if (Context.User.Identity.IsAuthenticated)
+                        {
+                            <form action="/User/Index" method="post">
+                                <input type="hidden" name="oilId" value="@oil.OilId" />
+                                <input type="submit" class="btn btn-primary" value="Add to My Medicine Cabinet" />
+                            </form>
+                        }
                     </div>
                 </div>
             }
