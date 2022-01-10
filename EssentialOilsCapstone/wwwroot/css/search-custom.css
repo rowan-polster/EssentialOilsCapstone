@@ -29,12 +29,12 @@
 }
 
 .search-page-top {
-    margin-left: 400px;
+    font-family: 'Varela Round', sans-serif;
 }
 
-div.stars {
+.stars {
     width: 270px;
-    margin-right: 300px;
+    margin-left: 200px
 }
 
 input.star {

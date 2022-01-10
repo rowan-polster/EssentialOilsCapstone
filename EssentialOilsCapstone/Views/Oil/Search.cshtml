@@ -23,15 +23,18 @@
             <h1>@ViewBag.title</h1>
 
             <form action="/oil/search" method="post">
-                <h2>Search by:</h2>
+                <h2 class="text-muted">Search by:</h2>
 
                 <p>
                     @foreach (var column in ViewBag.columns)
                     {
-                        <span>
-                            <input type="radio" name="searchType" id="@column.Key" value="@column.Key" />
-                            <label for="@column.Key">@column.Value</label>
-                        </span>
+
+                            <span class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="searchType" id="@column.Key" value="@column.Key">
+                                    <label for="@column.Key">@column.Value</label>
+                                </label>
+                            </span>
 
                     }
 
@@ -52,53 +55,35 @@
             {
                 <div class="card-columns">
 
-                @foreach (var oil in ViewBag.oils)
-                {
+                        @foreach (var oil in ViewBag.oils)
+                        {
                     <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
                         @*<svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-                        </svg>*@
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+        </svg>*@
                         <div class="card-body">
                             <h4 class="card-title">Name: @oil.Name</h4>
                             <p class="card-text">Description: @oil.Description</p>
                             <p class="card-text">Properties: @oil.PropertyText</p>
 
-                            <div class="stars">
-                                <form action="">
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
-                                </form>
-                            </div>
+                        </div>
 
+                        @if (Context.User.Identity.IsAuthenticated)
+                        {
                             <form action="/User/Index" method="post">
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
-                                <input type="submit" id="medicine-cabinet" class="btn btn-outline-primary" value="Add to My Medicine Cabinet" />
+                                <input type="submit" class="btn btn-outline-primary" onclick="alert('Added to My Medicine Cabinet')" value="Add to My Medicine Cabinet" />
                             </form>
 
-                            @if (Context.User.Identity.IsAuthenticated)
-                            {
-                                <form action="/User/Index" method="post">
-                                    <input type="hidden" name="oilId" value="@oil.OilId" />
-                                    <input type="submit" class="btn btn-outline-primary" value="Add to My Medicine Cabinet" />
-                                </form>
+                        }
+
+                    </div>
 
                             }
-
                         </div>
-                    </div>
-                }
-                    </div>
 
-            }
-        </div>
+                }
+    </div>
 </body>
 </html>
