@@ -1,7 +1,4 @@
-﻿body {
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-}
-
+﻿
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -31,4 +28,11 @@
     font-family: 'Varela Round', sans-serif;
 }
 
+.card-columns {
+    column-count: 3;
+}
 
+.page-top {
+    width: 300px;
+    margin: 4px;
+}

@@ -1,4 +1,4 @@
-﻿   using EssentialOilsCapstone.Data;
+﻿using EssentialOilsCapstone.Data;
 using EssentialOilsCapstone.Models;
 using EssentialOilsCapstone.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace EssentialOilsCapstone.Controllers
-{
+{  
     public class AdminController : Controller
     {
         private OilDbContext context;
@@ -78,7 +78,7 @@ namespace EssentialOilsCapstone.Controllers
             {
                 Oil theOil = context.EssentialOils.Find(oilId);
                 context.EssentialOils.Remove(theOil);
-            }   
+            }
 
             context.SaveChanges();
 

@@ -1,5 +1,4 @@
 ﻿<div class="px-5 py-5">
-
     <h1>Edit Oil</h1>
     <h5>@ViewBag.title</h5>
     <form method="post" action="/Admin/Edit">
@@ -23,11 +22,8 @@
                     <br /><label for="@property.Id">@property.Name</label>
                     <input type="checkbox" name="newProperties" value="@property.Id" />
                 }
-
-            }
-            <br /><a asp-controller="Property" asp-action="Add">Add Property</a>
-        </div>
-
+        }
+        <br /><a asp-controller="Property" asp-action="Add">Add Property</a>
         <input type="submit" value="Edit Essential Oil" />
-    </form>
-</div>
+    </div>
+</form>
