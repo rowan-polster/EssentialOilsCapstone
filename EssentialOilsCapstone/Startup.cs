@@ -51,7 +51,7 @@ namespace EssentialOilsCapstone
 
             app.UseAuthentication();
             app.UseAuthorization();
-            
+
 
             app.UseEndpoints(endpoints =>
             {
