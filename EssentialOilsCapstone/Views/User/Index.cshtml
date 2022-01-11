@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/search-custom.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
                             <p class="card-text">Description: @oil.Description</p>
                             <p class="card-text">Properties: @oil.PropertyText</p>
 
-                            <div class="stars" style="margin-left: -70px">
+                            @*<div class="stars" style="margin-left: -70px">
                                 <form action="">
                                     <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -46,12 +46,12 @@
                                     <input class="star star-1" id="star-1" type="radio" name="star" />
                                     <label class="star star-1" for="star-1"></label>
                                 </form>
-                            </div>
+                            </div>*@
 
-                            <div class="form-group">
+                            @*<div class="form-group">
                                 <label for="exampleTextarea" class="form-label mt-4">Comments</label>
                                 <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                            </div>
+                            </div>*@
 
                             <form action="/User/Delete" method="post">
                                 <input type="hidden" name="oilId" value="@oil.OilId" />

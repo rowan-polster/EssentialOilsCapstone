@@ -59,3 +59,7 @@ label.star:before {
     font-family: FontAwesome;
     color: #5fb894;
 }
+
+.card-columns{
+    column-count: 3;
+}
