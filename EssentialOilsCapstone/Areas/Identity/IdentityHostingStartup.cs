@@ -21,7 +21,8 @@ namespace EssentialOilsCapstone.Areas.Identity
                      context.Configuration.GetConnectionString("DefaultConnection")));
 
                 services.AddDefaultIdentity<EssentialOilsCapstoneUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                 .AddEntityFrameworkStores<OilDbContext>();
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<OilDbContext>();
             });
         }
     }

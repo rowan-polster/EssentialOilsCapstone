@@ -1,5 +1,8 @@
 ﻿<h1>Role Management</h1><br />
 
+<a asp-controller="Role" asp-action="AddRole">Add Role</a>
+<a asp-controller="Role" asp-action="ChangeUserRole">Change User Role</a><br />
+
 @if(ViewBag.roles != null)
             {
                 foreach(var role in ViewBag.roles)

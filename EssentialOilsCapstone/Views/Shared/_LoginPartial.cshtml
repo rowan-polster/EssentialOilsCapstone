@@ -11,6 +11,9 @@
             <a class="nav-link" asp-area="" asp-controller="User" asp-action="Index">My Medicine Cabinet</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">Manage Roles</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" asp-controller="User" asp-action="Index" asp-route-returnUrl="@Url.Action("Index", "User", new { area = "" })">Hello @UserManager.GetUserName(User)!</a>
         </li>
         <li class="nav-item">
@@ -20,7 +23,7 @@
         </li>
     }
     else
-    {   
+    {
         <li class="nav-item">
             <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">My Medicine Cabinet</a>
         </li>
