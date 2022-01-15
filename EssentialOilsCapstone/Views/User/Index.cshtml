@@ -32,7 +32,7 @@
                             <p class="card-text">Description: @oil.Description</p>
                             <p class="card-text">Properties: @oil.PropertyText</p>
 
-                            @*<div class="stars" style="margin-left: -70px">
+                            <div class="stars" style="margin-left: -70px">
                                 <form action="">
                                     <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
                                     <input class="star star-5" id="star-5" type="radio" name="star" />
@@ -46,13 +46,17 @@
                                     <input class="star star-1" id="star-1" type="radio" name="star" />
                                     <label class="star star-1" for="star-1"></label>
                                 </form>
-                            </div>*@
+                            </div>
 
-                            @*<div class="form-group">
-                                <label for="exampleTextarea" class="form-label mt-4">Comments</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                            </div>*@
-
+                            <div class="form-group">
+                                <form action="/User/SaveNotes" method="post">
+                                    <label for="notes" class="form-label mt-4">Notes:</label>
+                                    <input class="form-control" type="text" name="notes" value="@oil.UserNotes"/>
+                                    <input type="hidden" name="oilId" value="@oil.OilId" />
+                                    <input type="submit" class="btn btn-outline-light" value="Save" />
+                                </form>
+                            </div>
+                            
                             <form action="/User/Delete" method="post">
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
                                 <input type="submit" class="btn btn-outline-danger" value="Delete" />

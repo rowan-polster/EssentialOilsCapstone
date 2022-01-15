@@ -15,12 +15,31 @@ namespace EssentialOilsCapstone.ViewModels
         public string Name { get; set; }
         public string Description { get; set; }
         public string PropertyText { get; set; }
+        public string UserNotes { get; set; }
 
         public OilDetailViewModel(Oil theOil, List<OilProperty> oilProperties)
         {
             OilId = theOil.Id;
             Name = theOil.Name;
             Description = theOil.Description;
+
+            PropertyText = "";
+            for (int i = 0; i < oilProperties.Count; i++)
+            {
+                PropertyText += oilProperties[i].Property.Name;
+                if (i < oilProperties.Count - 1)
+                {
+                    PropertyText += ", ";
+                }
+            }
+        }
+
+        public OilDetailViewModel(Oil theOil, string userNotes, List<OilProperty> oilProperties)
+        {
+            OilId = theOil.Id;
+            Name = theOil.Name;
+            Description = theOil.Description;
+            UserNotes = userNotes;
 
             PropertyText = "";
             for (int i = 0; i < oilProperties.Count; i++)

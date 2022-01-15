@@ -12,6 +12,8 @@ namespace EssentialOilsCapstone.Models
         public int OilId { get; set; }
         public Oil Oil { get; set; }
         public EssentialOilsCapstoneUser User { get; set; }
+        public int NumStars { get; set; }
+        public string Notes { get; set; }
 
         public UserOil()
         {
