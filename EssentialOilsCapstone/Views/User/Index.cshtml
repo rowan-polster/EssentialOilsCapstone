@@ -15,10 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="px-5 py-5">
-        <div class="container body-content">
 
-        <h1>My Medicine Cabinet</h1> 
+    <div class="container body-content">
+
+        <h1>My Medicine Cabinet</h1>
 
         @if (ViewBag.userOils != null)
         {
@@ -37,58 +37,81 @@
                                 <form action="User/SaveNumStars" method="post">
                                     <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
                                     <input class="star star-5" type="submit" name="numStars" value="5" />-->
-                                                    @*<label class="star star-5" for="5"></label>*@
-                                                    <!--<input class="star star-4" type="submit" name="numStars" value="4"/>-->
-                                                    @*<label class="star star-4" for="4"></label>*@
-                                                    <!--<input class="star star-3" type="submit" name="numStars" value="3"/>-->
-                                                    @*<label class="star star-3" for="3"></label>*@
-                                                    <!--<input class="star star-2" type="submit" name="numStars" value="2" />-->
-                                                    @*<label class="star star-2" for="2"></label>*@
-                                                    <!--<input class="star star-1" type="submit" name="numStars" value="1" />-->
-                                                    @*<label class="star star-1" for="1"></label>*@
-                                                    <!--<br />
+                            @*<label class="star star-5" for="5"></label>*@
+                            <!--<input class="star star-4" type="submit" name="numStars" value="4"/>-->
+                            @*<label class="star star-4" for="4"></label>*@
+                            <!--<input class="star star-3" type="submit" name="numStars" value="3"/>-->
+                            @*<label class="star star-3" for="3"></label>*@
+                            <!--<input class="star star-2" type="submit" name="numStars" value="2" />-->
+                            @*<label class="star star-2" for="2"></label>*@
+                            <!--<input class="star star-1" type="submit" name="numStars" value="1" />-->
+                            @*<label class="star star-1" for="1"></label>*@
+                            <!--<br />
                                     <input type="hidden" name="numStars" value="0"/>
                                     <input type="hidden" name="oilId" value="@oil.OilId" />
                                 </form>
                             </div>-->
-                                                    <!--<div class="form-group" style="margin-left: -70px">
-                                <form action="User/SaveNumStars" method="post">
-                                    <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
-                                    <input type="hidden" name="numStars" value="0" />
-                                    <input type="hidden" name="oilId" value="@oil.OilId" />
-                                    <label><input type="submit" class="btn btn-outline-dark" value="1" /></label>-->
-                                                    @*<input type="submit" class="btn btn-check" value="2" />
+                            <!--<div class="form-group" style="margin-left: -70px">
+                            <form action="User/SaveNumStars" method="post">
+                                <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
+                                <input type="hidden" name="numStars" value="0" />
+                                <input type="hidden" name="oilId" value="@oil.OilId" />
+                                <label><input type="submit" class="btn btn-outline-dark" value="1" /></label>-->
+                            @*<input type="submit" class="btn btn-check" value="2" />
                                 <input type="submit" class="btn btn-check" value="3" />
                                 <input type="submit" class="btn btn-check" value="4" />
                                 <input type="submit" class="btn btn-check" value="5" />*@
-                                                    <!--</form>
+                            <!--</form>
                             </div>-->
-                        <div class="form-check" >
-                            <form action="/User/SaveNumStars" method="post">
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-5">
-                                        <input type="submit" display="hidden" class="star star-5" name="numStars" value="5" data-show-if="@oil.NumStars<5">
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <form action="/User/SaveNotes" method="post">
-                                        <h4>Notes:</h4>
-                                        <input class="form-control" type="text" name="notes" value="@oil.UserNotes" />
-                                        <input type="hidden" name="oilId" value="@oil.OilId" />
-                                        <input type="submit" class="btn btn-outline-primary mt-4" value="Save" />
-                                    </form>
-                                </div>
-
-                                <form action="/User/Delete" method="post">
+                            <div class="form-check">
+                                <form action="/User/SaveNumStars" method="post">
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star star-5">
+                                            <input type="submit" display="hidden" class="star star-5" name="numStars" value="5" data-show-if="@oil.NumStars<5">
+                                        </label>
+                                    </div>
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star star-4">
+                                            <input type="submit" display="hidden" class="star star-4" name="numStars" value="4" data-show-if="@oil.NumStars<4">
+                                        </label>
+                                    </div>
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star star-3">
+                                            <input type="submit" display="hidden" class="star star-3" name="numStars" value="3" data-show-if="@oil.NumStars<3">
+                                        </label>
+                                    </div>
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star star-2">
+                                            <input type="submit" display="hidden" class="star star-2" name="numStars" value="2" data-show-if="@oil.NumStars<2">
+                                        </label>
+                                    </div>
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star star-1">
+                                            <input type="submit" display="hidden" class="star star-1" name="numStars" value="1" data-show-if="@oil.NumStars<1">
+                                        </label>
+                                    </div>
                                     <input type="hidden" name="oilId" value="@oil.OilId" />
-                                    <input type="submit" class="btn btn-outline-danger" value="Delete" />
                                 </form>
                             </div>
+                            <div class="form-group">
+                                <form action="/User/SaveNotes" method="post">
+                                    <h4>Notes:</h4>
+                                    <input class="form-control" type="text" name="notes" value="@oil.UserNotes" />
+                                    <input type="hidden" name="oilId" value="@oil.OilId" />
+                                    <input type="submit" class="btn btn-outline-primary mt-4" value="Save" />
+                                </form>
+                            </div>
+
+                            <form action="/User/Delete" method="post">
+                                <input type="hidden" name="oilId" value="@oil.OilId" />
+                                <input type="submit" class="btn btn-outline-danger" value="Delete" />
+                            </form>
                         </div>
-                    }
-                </div>
-            }
-        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
     </div>
 </body>
 </html>
