@@ -20,7 +20,6 @@
 
             <h1>My Medicine Cabinet</h1>
 
-<<<<<<< HEAD
             @if (ViewBag.userOils != null)
             {
                 <div class="card-columns">
@@ -61,59 +60,6 @@
                                         </div>
                                         <input type="hidden" name="oilId" value="@oil.OilId" />
                                     </form>
-=======
-        <h1>My Medicine Cabinet</h1> 
-
-        @if (ViewBag.userOils != null)
-        {
-            <div class="card-columns">
-
-                @foreach (var oil in ViewBag.userOils)
-                {
-                    <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
-                        <div class="card-body">
-                            <h4 class="card-title">Name: @oil.Name</h4>
-                            <p class="card-text">Description: @oil.Description</p>
-                            <p class="card-text">Properties: @oil.PropertyText</p>
-
-                            @*figuring out how stars work*@
-                            <!--<div class="stars" style="margin-left: -70px">
-                                <form action="User/SaveNumStars" method="post">
-                                    <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
-                                    <input class="star star-5" type="submit" name="numStars" value="5" />-->
-                                                    @*<label class="star star-5" for="5"></label>*@
-                                                    <!--<input class="star star-4" type="submit" name="numStars" value="4"/>-->
-                                                    @*<label class="star star-4" for="4"></label>*@
-                                                    <!--<input class="star star-3" type="submit" name="numStars" value="3"/>-->
-                                                    @*<label class="star star-3" for="3"></label>*@
-                                                    <!--<input class="star star-2" type="submit" name="numStars" value="2" />-->
-                                                    @*<label class="star star-2" for="2"></label>*@
-                                                    <!--<input class="star star-1" type="submit" name="numStars" value="1" />-->
-                                                    @*<label class="star star-1" for="1"></label>*@
-                                                    <!--<br />
-                                    <input type="hidden" name="numStars" value="0"/>
-                                    <input type="hidden" name="oilId" value="@oil.OilId" />
-                                </form>
-                            </div>-->
-                                                    <!--<div class="form-group" style="margin-left: -70px">
-                                <form action="User/SaveNumStars" method="post">
-                                    <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
-                                    <input type="hidden" name="numStars" value="0" />
-                                    <input type="hidden" name="oilId" value="@oil.OilId" />
-                                    <label><input type="submit" class="btn btn-outline-dark" value="1" /></label>-->
-                                                    @*<input type="submit" class="btn btn-check" value="2" />
-                                <input type="submit" class="btn btn-check" value="3" />
-                                <input type="submit" class="btn btn-check" value="4" />
-                                <input type="submit" class="btn btn-check" value="5" />*@
-                                                    <!--</form>
-                            </div>-->
-                        <div class="form-check" >
-                            <form action="/User/SaveNumStars" method="post">
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-5">
-                                        <input type="submit" display="hidden" class="star star-5" name="numStars" value="5" data-show-if="@oil.NumStars<5">
-                                    </label>
->>>>>>> fe82ad5ae521996362c73015aa77c3fc0ed977cd
                                 </div>
                                 <div class="form-group">
                                     <form action="/User/SaveNotes" method="post">
