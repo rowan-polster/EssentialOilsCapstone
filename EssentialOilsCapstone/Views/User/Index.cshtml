@@ -32,31 +32,75 @@
                             <p class="card-text">Description: @oil.Description</p>
                             <p class="card-text">Properties: @oil.PropertyText</p>
 
-                            <div class="stars" style="margin-left: -70px">
-                                <form action="">
+                            <!--<div class="stars" style="margin-left: -70px">
+                                <form action="User/SaveNumStars" method="post">
                                     <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
-                                    <input class="star star-5" id="star-5" type="radio" name="star" />
-                                    <label class="star star-5" for="star-5"></label>
-                                    <input class="star star-4" id="star-4" type="radio" name="star" />
-                                    <label class="star star-4" for="star-4"></label>
-                                    <input class="star star-3" id="star-3" type="radio" name="star" />
-                                    <label class="star star-3" for="star-3"></label>
-                                    <input class="star star-2" id="star-2" type="radio" name="star" />
-                                    <label class="star star-2" for="star-2"></label>
-                                    <input class="star star-1" id="star-1" type="radio" name="star" />
-                                    <label class="star star-1" for="star-1"></label>
+                                    <input class="star star-5" type="submit" name="numStars" value="5" />-->
+                                                    @*<label class="star star-5" for="5"></label>*@
+                                                    <!--<input class="star star-4" type="submit" name="numStars" value="4"/>-->
+                                                    @*<label class="star star-4" for="4"></label>*@
+                                                    <!--<input class="star star-3" type="submit" name="numStars" value="3"/>-->
+                                                    @*<label class="star star-3" for="3"></label>*@
+                                                    <!--<input class="star star-2" type="submit" name="numStars" value="2" />-->
+                                                    @*<label class="star star-2" for="2"></label>*@
+                                                    <!--<input class="star star-1" type="submit" name="numStars" value="1" />-->
+                                                    @*<label class="star star-1" for="1"></label>*@
+                                                    <!--<br />
+                                    <input type="hidden" name="numStars" value="0"/>
+                                    <input type="hidden" name="oilId" value="@oil.OilId" />
                                 </form>
-                            </div>
-
+                            </div>-->
+                                                    <!--<div class="form-group" style="margin-left: -70px">
+                                <form action="User/SaveNumStars" method="post">
+                                    <p style="margin-left: 65px; font-size: 15px" class="text-muted">How well did this oil work for you?</p>
+                                    <input type="hidden" name="numStars" value="0" />
+                                    <input type="hidden" name="oilId" value="@oil.OilId" />
+                                    <label><input type="submit" class="btn btn-outline-dark" value="1" /></label>-->
+                                                    @*<input type="submit" class="btn btn-check" value="2" />
+                                <input type="submit" class="btn btn-check" value="3" />
+                                <input type="submit" class="btn btn-check" value="4" />
+                                <input type="submit" class="btn btn-check" value="5" />*@
+                                                    <!--</form>
+                            </div>-->
+                        <div class="form-check" >
+                            <form action="/User/SaveNumStars" method="post">
+                                <div class="stars" style="margin-left: -70px">
+                                    <label class="star star-5">
+                                        <input type="submit" display="hidden" class="star star-5" name="numStars" value="5" data-show-if="@oil.NumStars<5">
+                                    </label>
+                                </div>
+                                <div class="stars" style="margin-left: -70px">
+                                    <label class="star star-4">
+                                        <input type="submit" display="hidden" class="star star-4" name="numStars" value="4" data-show-if="@oil.NumStars<4">
+                                    </label>
+                                </div>
+                                <div class="stars" style="margin-left: -70px">
+                                    <label class="star star-3">
+                                        <input type="submit" display="hidden" class="star star-3" name="numStars" value="3" data-show-if="@oil.NumStars<3">
+                                    </label>
+                                </div>
+                                <div class="stars" style="margin-left: -70px">
+                                    <label class="star star-2">
+                                        <input type="submit" display="hidden" class="star star-2" name="numStars" value="2" data-show-if="@oil.NumStars<2">
+                                    </label>
+                                </div>
+                                <div class="stars" style="margin-left: -70px">
+                                    <label class="star star-1">
+                                        <input type="submit" display="hidden" class="star star-1" name="numStars" value="1" data-show-if="@oil.NumStars<1">
+                                    </label>
+                                </div>
+                                <input type="hidden" name="oilId" value="@oil.OilId" />
+                            </form>
+                        </div>
                             <div class="form-group">
                                 <form action="/User/SaveNotes" method="post">
                                     <label for="notes" class="form-label mt-4">Notes:</label>
-                                    <input class="form-control" type="text" name="notes" value="@oil.UserNotes"/>
+                                    <input class="form-control" type="text" name="notes" value="@oil.UserNotes" />
                                     <input type="hidden" name="oilId" value="@oil.OilId" />
-                                    <input type="submit" class="btn btn-outline-light" value="Save" />
+                                    <input type="submit" class="btn btn-outline-dark" value="Save" />
                                 </form>
                             </div>
-                            
+
                             <form action="/User/Delete" method="post">
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
                                 <input type="submit" class="btn btn-outline-danger" value="Delete" />

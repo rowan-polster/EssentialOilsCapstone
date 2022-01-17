@@ -40,13 +40,14 @@ namespace EssentialOilsCapstone.Controllers
                     .Single(o => o.Id == oil.OilId);
                 
                 string userNotes = context.UserOil.Find(foundOil.Id, currentUserId).Notes;
+                int numStars = context.UserOil.Find(foundOil.Id, currentUserId).NumStars;
 
                 List<OilProperty> displayProperties = context.OilProperty
                     .Where(op => op.OilId == foundOil.Id)
                     .Include(op => op.Property)
                     .ToList();
 
-                OilDetailViewModel newDisplayOil = new OilDetailViewModel(foundOil, userNotes, displayProperties);
+                OilDetailViewModel newDisplayOil = new OilDetailViewModel(foundOil, userNotes, numStars, displayProperties);
                 displayOils.Add(newDisplayOil);
             }
             ViewBag.userOils = displayOils;
