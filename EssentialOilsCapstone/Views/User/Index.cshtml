@@ -1,6 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+﻿<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EssentialOilsCapstone</title>
@@ -8,17 +6,17 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/search-custom.css" />
+    <script src="search-custom-bootstrap.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
-<body>
 
-    <div class="container body-content">
+    <div class="px-5 py-5">
 
-        <h1>My Medicine Cabinet</h1> 
+        <h1 class="mb-3">My Medicine Cabinet</h1> 
 
         @if (ViewBag.userOils != null)
         {
@@ -29,33 +27,38 @@
                     <div id="search-results" class="card border-success mb-3" style="max-width: 20rem;">
                         <div class="card-body">
                             <h4 class="card-title">Name: @oil.Name</h4>
-                            <p class="card-text">Description: @oil.Description</p>
-                            <p class="card-text">Properties: @oil.PropertyText</p>
+                            <h5 class="card-text">Description:</h5>
+                            <p>@oil.Description</p>
+                            <h5 class="card-text">Properties:</h5>
+                            <p>@oil.PropertyText</p>
 
-                        <div class="form-check" >
-                            <form action="/User/SaveNumStars" method="post">
+                            <h5>Rate This Oil:</h5>
 
-                                @for (int i = 5; i > oil.NumStars; i--)
-                                {
-                                    <div class="stars" style="margin-left: -70px">
-                                        <label class="star far fa-star">
-                                            <input type="submit" class="star far fa-star" name="numStars" value="@i">
-                                        </label>
-                                    </div>
-                                }
-                                @for (int i = oil.NumStars; i > 0; i--)
-                                {
-                                    <div class="stars" style="margin-left: -70px">
-                                        <label class="star-filled fas fa-star">
-                                            <input type="submit" class="star-filled fas fa-star" name="numStars" value="@i">
-                                        </label>
-                                    </div>
-                                }
+                            <div class="form-check" >
+                                <form action="/User/SaveNumStars" method="post">
+
+                                    @for (int i = 5; i > oil.NumStars; i--)
+                                    {
+                                        <div class="stars" style="margin-left: -70px">
+                                            <label class="star far fa-star">
+                                                <input type="submit" class="star far fa-star" name="numStars" value="@i">
+                                            </label>
+                                        </div>
+                                    }
+                                    @for (int i = oil.NumStars; i > 0; i--)
+                                    {
+                                        <div class="stars" style="margin-left: -70px">
+                                            <label class="star-filled fas fa-star">
+                                                <input type="submit" class="star-filled fas fa-star" name="numStars" value="@i">
+                                            </label>
+                                        </div>
+                                    }
 
 
-                                <input type="hidden" name="oilId" value="@oil.OilId" />
-                            </form>
-                        </div>
+                                    <input type="hidden" name="oilId" value="@oil.OilId" />
+                                </form>
+                            </div>
+
                             <div class="form-group">
                                 <form action="/User/SaveNotes" method="post">
                                     <h4>Notes:</h4>
@@ -69,11 +72,9 @@
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
                                 <input type="submit" class="btn btn-outline-danger" value="Delete" />
                             </form>
-</div>
+                        </div>
                     </div>
                 }
             </div>
         }
     </div>
-</body>
-</html>

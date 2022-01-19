@@ -18,24 +18,26 @@
     <h1>@ViewBag.title</h1>
 
     <form action="/oil/search" method="post">
-        <h5 class="text-muted">Search by:</h5>
+        <h4 class="text-muted">Search by:</h4>
         <p>
             @foreach (var column in ViewBag.columns)
             {
                 <span class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="searchType" id="@column.Key" value="@column.Key">
+                        <input type="radio" class="form-check-input" name="searchType" id="@column.Key" value="@column.Key" checked>
                         <label for="@column.Key">@column.Value</label>
                     </label>
                 </span>
             }
         </p>
         <p>
-            <label for="searchTerm">Keyword:</label>
+            <h5 class="text-muted mb-2">
+                <label for="searchTerm">Keyword:</label>
+            </h5>
             <input type="text" class="form-control me-sm-2" style="width: 300px" name="searchTerm" id="searchTerm" />
         </p>
 
-        <input class="btn btn-primary" type="submit" value="Search" />
+        <input class="btn btn-primary btn-lg" type="submit" value="Search" />
     </form>
 
     <hr />
@@ -54,8 +56,10 @@
                         </svg>*@
                     <div class="card-body">
                         <h4 class="card-title">Name: @oil.Name</h4>
-                        <p class="card-text">Description: @oil.Description</p>
-                        <p class="card-text">Properties: @oil.PropertyText</p>
+                        <h5 class="card-text">Description:</h5>
+                        <p>@oil.Description</p>
+                        <h5 class="card-text">Properties:</h5>
+                        <p>@oil.PropertyText</p>
 
 
                         @if (Context.User.Identity.IsAuthenticated)
