@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/search-custom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,31 +65,50 @@
                             </div>-->
                         <div class="form-check" >
                             <form action="/User/SaveNumStars" method="post">
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-5">
-                                        <input type="submit" display="hidden" class="star star-5" name="numStars" value="5" data-show-if="@oil.NumStars<5">
-                                    </label>
-                                </div>
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-4">
-                                        <input type="submit" display="hidden" class="star star-4" name="numStars" value="4" data-show-if="@oil.NumStars<4">
-                                    </label>
-                                </div>
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-3">
-                                        <input type="submit" display="hidden" class="star star-3" name="numStars" value="3" data-show-if="@oil.NumStars<3">
-                                    </label>
-                                </div>
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-2">
-                                        <input type="submit" display="hidden" class="star star-2" name="numStars" value="2" data-show-if="@oil.NumStars<2">
-                                    </label>
-                                </div>
-                                <div class="stars" style="margin-left: -70px">
-                                    <label class="star star-1">
-                                        <input type="submit" display="hidden" class="star star-1" name="numStars" value="1" data-show-if="@oil.NumStars<1">
-                                    </label>
-                                </div>
+
+                                @for (int i = oil.NumStars + 1; i < 6; i++)
+                                {
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star far fa-star">
+                                            <input type="submit" class="star far fa-star" name="numStars" value="@i">
+                                        </label>
+                                    </div>
+                                }
+                                @for (int i = oil.NumStars; i > 0; i--)
+                                {
+                                    <div class="stars" style="margin-left: -70px">
+                                        <label class="star-filled fas fa-star">
+                                            <input type="submit" class="star-filled fas fa-star" name="numStars" value="@i">
+                                        </label>
+                                    </div>
+                                }
+
+
+                                @*<div class="stars" style="margin-left: -70px">
+            <label class="star star-5">
+                <input type="submit" class="star star-5" name="numStars" value="5">
+            </label>
+        </div>
+        <div class="stars" style="margin-left: -70px">
+            <label class="star star-4">
+                <input type="submit" class="star star-4" name="numStars" value="4">
+            </label>
+        </div>
+        <div class="stars" style="margin-left: -70px">
+            <label class="star star-3">
+                <input type="submit" class="star star-3" name="numStars" value="3">
+            </label>
+        </div>
+        <div class="stars" style="margin-left: -70px">
+            <label class="star star-2">
+                <input type="submit" class="star star-2" name="numStars" value="2">
+            </label>
+        </div>
+        <div class="stars" style="margin-left: -70px">
+            <label class="star star-1">
+                <input type="submit" class="star star-1" name="numStars" value="1">
+            </label>
+        </div>*@
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
                             </form>
                         </div>
@@ -105,7 +125,7 @@
                                 <input type="hidden" name="oilId" value="@oil.OilId" />
                                 <input type="submit" class="btn btn-outline-danger" value="Delete" />
                             </form>
-                        </div>
+</div>
                     </div>
                 }
             </div>
