@@ -22,7 +22,8 @@
 
     @if (Model.Count == 0)
     {
-        <p>No properties added yet.</p>
+        <p>No properties added yet.</p><br />
+        <a asp-controller="Property" asp-action="Add" class="btn btn-secondary btn-sm mb-4">Add A Property</a>
     }
     else
     {
