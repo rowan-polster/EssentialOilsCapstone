@@ -40,7 +40,9 @@ namespace EssentialOilsCapstone.Controllers
             {
                 context.Property.Add(property);
                 context.SaveChanges();
-                return View("Index");
+
+		List<Property> properties = context.Property.ToList();
+                return View("Index", properties);
             }
 
             return View("Add", property);
