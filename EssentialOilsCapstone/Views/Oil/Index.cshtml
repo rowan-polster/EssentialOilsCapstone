@@ -1,16 +1,35 @@
 ﻿@model List<EssentialOilsCapstone.Models.Oil>
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EssentialOilsCapstone</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/search-custom.css" />
+    <script src="search-custom-bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
+
+
 <div class="px-5 py-5">
-    <h1>Essential Oils</h1><br />
+    <h1 class="mb-sm-0">Essential Oils</h1><br />
 
     @if (Model.Count == 0)
     {
         <p>No essential oils yet.</p>
-        <a asp-controller="Admin" asp-action="AddEntry">Add Essential Oil</a>
+        <a asp-controller="Admin" asp-action="AddEntry" class="btn btn-secondary">Add Essential Oil</a>
     }
     else
     {
-        <a asp-controller="Admin" asp-action="AddEntry">Add Essential Oil</a><br />
+        <a asp-controller="Admin" asp-action="AddEntry" class="btn btn-secondary mb-4 btn-sm">Add Essential Oil</a><br />
         <table class="table">
             <tr>
                 <th><h5>Name</h5></th>

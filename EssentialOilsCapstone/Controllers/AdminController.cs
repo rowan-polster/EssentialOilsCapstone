@@ -104,7 +104,8 @@ namespace EssentialOilsCapstone.Controllers
 
             ViewBag.oil = context.EssentialOils.Find(oilId);
             ViewBag.oilId = oilId;
-            ViewBag.title = "Edit Oil " + ViewBag.oil.Name + " (id = " + ViewBag.oil.Id + ")";
+            //ViewBag.title = "Edit Oil " + ViewBag.oil.Name + " (id = " + ViewBag.oil.Id + ")";
+            ViewBag.title = "Edit Oil: " + ViewBag.oil.Name;
             ViewBag.allProperties = properties;
             ViewBag.theProperties = theProperties;
 

@@ -1,13 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EssentialOilsCapstone</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/search-custom.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
 
 <div class="px-4 py-5 text-center">
     <h1 class="display-4 fw-bold">Welcome To <br /> Essential Wellness!</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="lead mb-5 my-5">~~~~Tagline~~~~</p>
+        <h2 class="lead mb-4 my-4">The Site Where You Can Track <br />And Personalize Your Essential Oil Experience</h2>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a type="button" class="btn btn-primary btn-lg px-4" asp-area="" asp-controller="Oil" asp-action="Search">Search Oils</a>
+            <a class="btn btn-primary btn-lg px-4" asp-area="" asp-controller="Oil" asp-action="Search">Search Oils</a>
         </div>
     </div>
     <div class="px-4 py-5 text-center">
@@ -17,38 +32,38 @@
                 <h2>Why Use Essential Oils?</h2>
                 <div class="carousel-item active">
                     <figure class=" text-center">
-                        <div class="container">
+                        <div class="container-xl">
                             <p class="px-6">
                                 "Essential oils can help relax the body, help you sleep,
                                 reduce headaches and enhance massage therapy."
                             </p>
                             <figcaption class="blockquote-footer">
-                                Cara Thurman
+                                Cara Thurman, <br />Massage Therapist
                             </figcaption>
                         </div>
                     </figure>
                 </div>
                 <div class="carousel-item">
                     <figure class=" text-center">
-                        <div class="container">
+                        <div class="container-xl">
                             <p class="px-6">
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                "It doesn’t get much greener than essential oils: when used correctly,
+                                they are among Mother Nature’s most potent remedies."
                             </p>
                             <figcaption class="blockquote-footer">
-                                Latin Text
+                                Amy Leigh Mercree, <br />Author of Essential Oils Handbook: Recipes for Natural Living
                             </figcaption>
                         </div>
                     </figure>
                 </div>
                 <div class="carousel-item">
                     <figure class=" text-center">
-                        <div class="container">
+                        <div class="container-xl">
                             <p class="px-6">
-                                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                "If you believe in Aromatherapy…it works! If you don’t believe in Aromatherapy…it works!"
                             </p>
                             <figcaption class="blockquote-footer">
-                                More Latin Text
+                                Cristina Proano-Carrion,<br /> Aromatherapy Lecturer & Formulator
                             </figcaption>
                         </div>
                     </figure>
