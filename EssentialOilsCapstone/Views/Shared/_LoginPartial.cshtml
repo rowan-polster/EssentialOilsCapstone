@@ -11,7 +11,7 @@
             <a class="nav-link" asp-controller="User" asp-action="Index">My Medicine Cabinet</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-controller="User" asp-action="Index" asp-route-returnUrl="@Url.Action("Index", "User", new { area = "" })">Hello @UserManager.GetUserName(User)!</a>
+            <a class="nav-link" asp-controller="User" asp-action="Index" asp-route-returnUrl="@Url.Action("Index", "User", new { area = "" })">Hello, @UserManager.GetUserName(User)!</a>
         </li>
         <li class="nav-item">
             <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Manage Account</a>
