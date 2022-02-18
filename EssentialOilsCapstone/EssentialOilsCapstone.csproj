@@ -39,4 +39,13 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Areas\Identity\Pages\Account\EmailConfirmed.cshtml.cs">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Areas\Identity\Pages\Account\EmailConfirmed.cshtml" />
+  </ItemGroup>
 </Project>
